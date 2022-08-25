@@ -10,3 +10,5 @@ sed "s/serveradminpassword/$ARKSERVER_ADMIN_PASSWORD/g" -i /home/arkserver/serve
 sed "s/serverpassword/$ARKSERVER_PASSWORD/g" -i /home/arkserver/serverfiles/ShooterGame/Saved/Config/LinuxServer/GameUserSettings.ini
 
 cp /home/arkserver/tmacvica-arkserver/config/PlayersExclusiveJoinList.txt /home/arkserver/serverfiles/ShooterGame/Binaries/Linux/
+
+cp /home/arkserver/tmacvica-arkserver/config/arkserver.cfg /home/arkserver/lgsm/config-lgsm/arkserver
