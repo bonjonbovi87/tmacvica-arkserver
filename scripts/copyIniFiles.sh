@@ -6,6 +6,7 @@ git push
 
 cp /home/arkserver/tmacvica-arkserver/config/Game*.ini /home/arkserver/serverfiles/ShooterGame/Saved/Config/LinuxServer
 
+source /etc/environment
 sed "s/serveradminpassword/$ARKSERVER_ADMIN_PASSWORD/g" -i /home/arkserver/serverfiles/ShooterGame/Saved/Config/LinuxServer/GameUserSettings.ini
 sed "s/serverpassword/$ARKSERVER_PASSWORD/g" -i /home/arkserver/serverfiles/ShooterGame/Saved/Config/LinuxServer/GameUserSettings.ini
 
