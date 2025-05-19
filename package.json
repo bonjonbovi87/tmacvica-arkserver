@@ -1,0 +1,15 @@
+{
+  "name": "tmacvica-arkserver",
+  "version": "1.0.0",
+  "description": "Express server to control ark server with start, restart, and stop commands.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/arkserver_api.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.4"
+  }
+}
+
