@@ -1,19 +1,30 @@
 const express = require('express');
 const { exec } = require('child_process');
 const app = express();
-const port = 3000;
+const port = 7776;
+
+function log(message){
+  const timestamp = new Date().toISOString();
+  console.log(`${timestamp} - ${message}`);
+}
+
+function formatRet(ret){
+  return ret.replace("\n", "<br />");
+}
 
 function runCommand(command, res) {
   command = `/home/arkserver/arkserver ${command}`;
+  log(command)
   exec(command, (error, stdout, stderr) => {
     if (error) {
-      console.error(`Error: ${error.message}`);
-      return res.status(500).send(`Command failed: ${error.message}`);
+      log(`Error: ${error.message}\n${stdout}`);
+      return res.status(500).send(`Command executed: ${formatRet(stdout)}`);
     }
     if (stderr) {
-      console.warn(`Stderr: ${stderr}`);
+      log(`Stderr: ${stderr}`);
     }
-    res.send(`Command executed:\n${stdout}`);
+    log(stdout);	  
+    res.send(`Command executed: ${formatRet(stdout)}`);
   });
 }
 
@@ -29,7 +40,7 @@ app.get('/ark/stop', (req, res) => {
   runCommand('stop', res);
 });
 
-app.listen(port, '10.0.0.47', () => {
-  console.log(`tmacvica-arkserver listening at http://localhost:${port}`);
+app.listen(port, '0.0.0.0', () => {
+  log(`tmacvica-arkserver listening :${port}`);
 });
 
