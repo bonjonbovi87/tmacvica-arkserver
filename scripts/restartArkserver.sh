@@ -1,5 +1,5 @@
 #!/bin/sh
 
 
-./copyIniFiles.sh
+/home/arkserver/tmacvica-arkserver/scripts/copyIniFiles.sh
 /home/arkserver/arkserver restart

@@ -13,7 +13,7 @@ function formatRet(ret){
 }
 
 function runCommand(command, res) {
-  command = `/home/arkserver/arkserver ${command}`;
+  command = `/home/arkserver/${command}`;
   log(command)
   exec(command, (error, stdout, stderr) => {
     if (error) {
@@ -29,15 +29,15 @@ function runCommand(command, res) {
 }
 
 app.get('/ark/start', (req, res) => {
-  runCommand('start', res);
+  runCommand('arkserver start', res);
 });
 
 app.get('/ark/restart', (req, res) => {
-  runCommand('restart', res);
+  runCommand('tmacvica-arkserver/scripts/restartArkserver.sh', res);
 });
 
 app.get('/ark/stop', (req, res) => {
-  runCommand('stop', res);
+  runCommand('arkserver stop', res);
 });
 
 app.listen(port, '0.0.0.0', () => {
